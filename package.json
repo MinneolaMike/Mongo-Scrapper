@@ -1,0 +1,29 @@
+{
+  "name": "mongo-scrapper",
+  "version": "1.0.0",
+  "description": "Scrapper using Mongo DB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinneolaMike/Mongo-Scrapper.git"
+  },
+  "author": "Mike Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MinneolaMike/Mongo-Scrapper/issues"
+  },
+  "homepage": "https://github.com/MinneolaMike/Mongo-Scrapper#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.2.14",
+    "request": "^2.88.0"
+  }
+}
