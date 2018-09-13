@@ -38,8 +38,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Connect to the Mongo DB
 
@@ -76,36 +75,25 @@ app.get("/saved", function(req, res) {
     });
 });
 
- // Render 404 page for any unmatched routes
- app.get("*", function(req, res) {
-  res.render("404");
-});
-
 // A GET request to scrape the echojs website
 app.get("/scrape", function(req, res) {
   console.log("i hit the scrape route");
   // First, we grab the body of the html with request
-  request("http://www.nytimes.com/", function(error, response, html) {
+  request("https://www.yahoo.com/news/", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article").each(function(i, element) {
-      
+    $("li.js-stream-content").each(function(i, element) {
+      var l = $(element).find("a").attr("href");
+        console.log(l);
       // Save an empty result object
-      var result = [];
-      
+      var result = {};
+
       // Add the title and summary of every link, and save them as properties of the result object
-      result.title = $(this)
-      .children("h2")
-      .text();
-      result.summary = $(this)
-      .children(".summary")
-      .text();
-      result.link = $(this)
-      .children("h2")
-      .children("a")
-      .attr("href");
-      
+      result.title = $(element).find("h3").text();
+      result.summary = $(element).find("p").text();
+      result.link ="https://www.yahoo.com/news/" + l;
+
       console.log("this should be result" + result);
       // Using our Article model, create a new entry
       // This effectively passes the result object to the entry (and the title and link)
@@ -258,6 +246,10 @@ app.delete("/notes/delete/:note_id/:article_id", function(req, res) {
   });
 });
 
+// Render 404 page for any unmatched routes
+app.get("*", function(req, res) {
+  res.render("404");
+});
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

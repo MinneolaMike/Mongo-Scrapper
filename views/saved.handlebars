@@ -11,11 +11,11 @@
     <div class="col-md-12">
         {{#if article}}
             {{#each article}}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <h4>{{this.title}}</h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <p> {{this.summary}}</p>
                         <a href={{this.link}} target="_blank">{{this.link}}</a>
                         <br><br>
@@ -25,8 +25,8 @@
                 </div>
             {{/each}}
         {{else}}
-        <div class="panel panel-default">
-            <div class="panel-body">
+        <div class="card">
+            <div class="card-body">
                 <h4>You have no saved articles.</h4>
             </div>
         </div>
@@ -36,7 +36,7 @@
 
 <!--Clicked Notes Modal-->
 {{#each article}}
-    {{> notes-modal }}
+    {{> notesModal }}
 {{/each}}
 
 

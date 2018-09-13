@@ -3,7 +3,7 @@
 <div class="container">
     <div class="col-md-12 jumbotron">
         <div class="text-center">
-            <h1> New York Times Mongo Scraper</h1>
+            <h1><img src="/images/yahoo-news-logo.png"> Mongo Scrapper</h1>
             <p>Use the scrape articles button to populate the page with articles. Then view and save your favorites, you can even add notes!!!</p>
         </div>
 
@@ -11,11 +11,11 @@
     <div class="col-md-12">
         {{#if article}}
         {{#each article}}
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="card">
+            <div class="card-header">
                 <h4>{{this.title}}</h4>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 <p> {{this.summary}}</p>
                 <a href={{this.link}} target="_blank">{{this.link}}</a>
                 <br><br>
@@ -24,8 +24,8 @@
         </div>
         {{/each}}
         {{else}}
-        <div class="panel panel-default">
-            <div class="panel-body">
+        <div class="card">
+            <div class="card-body">
                 <h4>Looks like you don't have any articles.</h4>
             </div>
         </div>

@@ -1,0 +1,39 @@
+body {
+  background: url(images/newspaper.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+nav {
+    background-color: #62085D;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 30px;
+}
+
+.nav-link {
+    color: white;
+    margin: 0px 20px;
+}
+
+#scrape {
+    margin: 0px 0px 0px 20px;
+}
+
+.card {
+    margin: 25px 0px;
+}
+
+.card-header {
+    background-color: #62085D;
+    color: white;
+}
+
+.modal-header {
+    background-color: #62085D;
+    color: white;
+}
