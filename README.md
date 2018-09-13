@@ -23,6 +23,7 @@
 
 ## Technologies Used
 * JavaScript
+* Node.js
 * jQuery
 * Mongo DB
 * Mongoose
